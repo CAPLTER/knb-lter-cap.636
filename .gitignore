@@ -32,3 +32,7 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .Rproj.user
+
+# project specific
+knb-lter-cap\.636\.\d+\.xml
+636_.*

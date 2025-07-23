@@ -3,7 +3,7 @@ title: "knb-lter-cap.636"
 author: "CAP LTER Information Manager"
 ---
 
-# micromet_data
+## micromet_data
 
 ```{r}
 #| label: micromet-data
@@ -16,7 +16,6 @@ micromet_data <- DBI::dbGetQuery(
   SELECT
     events.timestamp,
     sites.site_code,
-    -- events.site_id,
     events.replicate,
     variables.variablecode,
     observations.reading
@@ -26,6 +25,11 @@ micromet_data <- DBI::dbGetQuery(
   JOIN micromet.sites ON (sites.id = events.site_id)
   -- WHERE
   --   timestamp >= '2021-01-01'
+  ORDER BY
+    sites.site_code,
+    events.timestamp,
+    events.replicate,
+    variables.variablecode
   ;
   "
 )
@@ -56,7 +60,7 @@ expected_names <- c(
 
 ```
 
-# DT: micromet_data_2021_present
+## DT: micromet_data_2021_present
 
 ```{r}
 #| label: micromet-data-2021-present
@@ -77,10 +81,11 @@ micromet_data_2021_present <- micromet_data |>
 # })
 
 capeml::update_attributes(micromet_data_2021_present)
+
 ```
 
 
-# DT: micromet_data_2011_2020
+## DT: micromet_data_2011_2020
 
 ```{r}
 #| label: micromet-data-2011-2020
@@ -101,10 +106,11 @@ micromet_data_2011_2020 <- micromet_data |>
 # })
 
 # micromet_data_2011_2020_DT <- capeml::harvest_dataTable("data_2011_2020/micromet_data_2011_2020_DT.xml")
+
 ```
 
 
-# DT: micromet_data_2006_2010
+## DT: micromet_data_2006_2010
 
 ```{r}
 #| label: micromet-data-2006-2010
@@ -127,44 +133,16 @@ micromet_data_2006_2010 <- micromet_data |>
 # capeml::update_attributes(micromet_data_2006_2010)
 
 # micromet_data_2006_2010_DT <- capeml::harvest_dataTable("data_2006_2010/micromet_data_2006_2010_DT.xml")
-```
-
-
-# OE: micromet_program_DBG
-
-```{r}
-#| label: micromet-program-DBG
-#| eval: TRUE
-
-micromet_program_DBG_desc       <- "data logger and sensor control program for Campbell data logger at the CAP LTER Desert Botanical Garden site"
-micromet_program_DBG_additional <- "developed with Campbell Loggernet software"
-
-micromet_program_DBG_OE <- capeml::create_otherEntity(
-  target_file_or_directory = "tower_operation/CNDep_DBG_MetTower.CR1",
-  description              = micromet_program_DBG_desc,
-  additional_information   = micromet_program_DBG_additional
-)
 
 ```
 
-# OE: micromet_program_LDP
 
-```{r}
-#| label: micromet-program-LDP
-#| eval: TRUE
+## OE: micromet_programs (DBG and LDP)
 
-micromet_program_LDP_desc       <- "data logger and sensor control program for Campbell data logger at the CAP LTER Lost Dutchman Park site"
-micromet_program_LDP_additional <- "developed with Campbell Loggernet software"
+see `data_objects.yaml`
 
-micromet_program_LDP_OE <- capeml::create_otherEntity(
-  target_file_or_directory = "tower_operation/CNDep_LDP_MetTower.CR1",
-  description              = micromet_program_LDP_desc,
-  additional_information   = micromet_program_LDP_additional
-)
 
-```
-
-# DT: maintenance_log
+## DT: maintenance_log
 
 ```{r}
 #| label: maintenance-log
@@ -180,21 +158,10 @@ maintenance_log <- readr::read_csv("maintenance_log.csv") |>
 #   capeml::write_factors(maintenance_log, overwrite = FALSE)
 # })
 
-# capeml::update_attributes(micromet_data_2021_present)
-
-# maintenance_log_desc <- "log of maintenance activity, especially sensor calibration and replacement, at the CAP LTER micromet towers"
-
-# maintenance_log_DT <- capeml::create_dataTable(
-#   dfname         = maintenance_log,
-#   description    = maintenance_log_desc,
-#   dateRangeField = "date",
-#   overwrite      = FALSE,
-#   projectNaming  = TRUE
-# )
 ```
 
 
-# coverages
+## coverages
 
 ```{r}
 #| label: coverages
@@ -254,13 +221,11 @@ coverage <- EML::eml$coverage(
     ),
   temporalCoverage = tower_temporal
 )
+
 ```
 
 
-# dataset
-
-Optionally, provide: scope, abstract, methods, keywords, publication date.
-Projects scopes include lter (default), gios, urex, ltreb, and som.
+## build
 
 ```{r}
 #| label: construct-dataset
@@ -268,37 +233,15 @@ Projects scopes include lter (default), gios, urex, ltreb, and som.
 #| error: TRUE
 
 dataset <- capeml::create_dataset()
-```
-
-
-# eml
-
-```{r}
-#| label: construct-eml
-#| eval: TRUE
-#| error: TRUE
-
-eml <- capeml::create_eml()
-```
-
-```{r}
-#| label: validate-eml
-#| eval: TRUE
-#| error: TRUE
+eml     <- capeml::create_eml()
 
 EML::eml_validate(eml)
-```
-
-```{r}
-#| label: eml-to-file
-#| eval: TRUE
-#| error: TRUE
-
 capeml::write_cap_eml()
+
 ```
 
 
-# file placement: data files
+## file placement
 
 ```{r}
 #| label: upload-data-S3
@@ -306,13 +249,24 @@ capeml::write_cap_eml()
 #| error: TRUE
 
 source("~/Documents/localSettings/aws.s3")
-lapply(c(list.files(pattern = "^636.+csv$")), capeml::data_to_amz)
+
+lapply(
+  c(
+    list.files(
+      pattern = "^636_",
+      recursive = TRUE
+    )
+  ),
+  capeml::data_to_amz
+)
+
 ```
 
 
-# EDI
+## EDI
 
-## login
+- Note that each <dttm> will generate a (formatting) warn.
+- Packages with large files like this one needed to be uploaded manually.
 
 ```{r}
 #| label: edi-login
@@ -320,73 +274,32 @@ lapply(c(list.files(pattern = "^636.+csv$")), capeml::data_to_amz)
 #| error: TRUE
   
 source("~/Documents/localSettings/edi.R")
-```
 
-## package report (short)
-
-```{r}
-#| label: package report (short)
-#| eval: TRUE
-#| error: TRUE
-  
 capeml::get_package_evaluation(full_report = FALSE)
-```
 
-## package report (full)
-
-```{r}
-#| label: package report (full)
-#| eval: FALSE
-#| error: TRUE
-  
 report <- capeml::get_package_evaluation(full_report = TRUE)
 xml2::write_xml(report, "/tmp/report.xml")
-```
 
-## update
-
-```{r}
-#| label: update
-#| eval: TRUE
-#| error: TRUE
-
-capeml::create_package(
-  environment = "production",
-  update      = TRUE
-)
-```
-
-
-## logout
-
-```{r}
-#| label: edi-logout
-#| eval: TRUE
-#| error: TRUE
+# capeml::create_package(
+#   environment = "production",
+#   update      = TRUE
+# )
 
 EDIutils::logout()
+
 ```
 
 
-# post processing
+## clean
 
-remove data files (these are big files!)
 
 ```{r}
-#| label: delete-data-files
+#| label: post-process
 #| eval: TRUE
 #| error: TRUE
 
 file.remove(c(list.files(pattern = "^636.+csv$")))
-```
-
-EML file to Amazon and cap-metadata
-
-```{r}
-#| label: copy-data-files
-#| eval: TRUE
-#| error: TRUE
-
 capeml::eml_to_amz(list.files(pattern = "knb.+xml"))
 file.copy(list.files(pattern = "knb.+xml"), "/home/srearl/localRepos/cap-metadata/cap-data-eml/")
+
 ```

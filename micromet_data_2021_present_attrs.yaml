@@ -37,7 +37,7 @@
     valueLabel: ''
     unit: DEG_C
     numberType: real
-    minimum: -1.822
+    minimum: -3.549
     maximum: 46.61
     columnClasses: numeric
   rh:
@@ -49,8 +49,8 @@
     valueLabel: ''
     unit: PERCENT
     numberType: real
-    minimum: 1.759
-    maximum: 109.6
+    minimum: -12
+    maximum: 112.5
     columnClasses: numeric
   slrkw_avg:
     attributeName: slrkw_avg

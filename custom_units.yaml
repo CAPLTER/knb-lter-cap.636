@@ -1,7 +1,14 @@
 - name: MilliM
+  description: Millimeter
 - name: NUM
+  description: Number
 - name: DEG_C
+  description: degree Celsius
 - name: PERCENT
+  description: Percent
 - name: MegaJ-PER-M2
+  description: Megajoule Per Square Meter
 - name: M-PER-SEC
+  description: Meter per Second
 - name: DEG
+  description: Degree
