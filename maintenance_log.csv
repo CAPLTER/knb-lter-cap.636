@@ -73,3 +73,5 @@ date,site,sensor,serial_number,calibrated,action,note
 2025-06-24,LDP,Apogee CS300,20336,2025-06-03,installed,NA
 2025-06-24,LDP,Vaisala HMP45C,A5250001,2024-06-06,removed,NA
 2025-06-24,LDP,Vaisala HMP45C,A2640045,2025-06-04,installed,NA
+2025-09-15,LDP,Vaisala HMP45C,A2640045,2025-06-04,removed,sensor was not working properly
+2025-09-15,LDP,Vaisala HMP45C,A5250001,2025-08-22,installed,NA
