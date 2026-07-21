@@ -77,3 +77,5 @@ date,site,sensor,serial_number,calibrated,action,note
 2025-09-15,LDP,Vaisala HMP45C,A5250001,2025-08-22,installed,NA
 2026-02-03,LDP,R.M. Young 05103-5,65238,NA,removed,could not find calibration record
 2026-02-03,LDP,R.M. Young 05103-5,72879,2025-07-30,installed,NA
+2026-07-10,LDP,TR-525USW,75265-218,NA,removed,could not find calibartion record
+2026-07-10,LDP,TE525,37686-1205,2025-06-24,installed,NA
