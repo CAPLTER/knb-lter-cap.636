@@ -75,12 +75,12 @@ micromet_data_2021_present <- micromet_data |>
     actions = pointblank::stop_on_fail()
   )
 
-# try({
-#   capeml::write_attributes(micromet_data_2021_present, overwrite = FALSE)
-#   capeml::write_factors(micromet_data_2021_present, overwrite = FALSE)
-# })
+try({
+  capeml::write_attributes(micromet_data_2021_present, overwrite = FALSE)
+  capeml::write_factors(micromet_data_2021_present, overwrite = FALSE)
+})
 
-capeml::update_attributes(micromet_data_2021_present)
+# capeml::update_attributes(micromet_data_2021_present)
 
 ```
 
@@ -238,68 +238,6 @@ eml     <- capeml::create_eml()
 EML::eml_validate(eml)
 capeml::write_cap_eml()
 
-```
-
-
-## file placement
-
-```{r}
-#| label: upload-data-S3
-#| eval: TRUE
-#| error: TRUE
-
-source("~/Documents/localSettings/aws.s3")
-
-lapply(
-  c(
-    list.files(
-      pattern = "^636_",
-      recursive = TRUE
-    )
-  ),
-  capeml::data_to_amz
-)
-
-```
-
-
-## EDI
-
-- Note that each <dttm> will generate a (formatting) warn.
-- Packages with large files like this one needed to be uploaded manually.
-
-```{r}
-#| label: edi-login
-#| eval: TRUE
-#| error: TRUE
-  
-source("~/Documents/localSettings/edi.R")
-
-capeml::get_package_evaluation(full_report = FALSE)
-
-report <- capeml::get_package_evaluation(full_report = TRUE)
-xml2::write_xml(report, "/tmp/report.xml")
-
-# capeml::create_package(
-#   environment = "production",
-#   update      = TRUE
-# )
-
-EDIutils::logout()
-
-```
-
-
-## clean
-
-
-```{r}
-#| label: post-process
-#| eval: TRUE
-#| error: TRUE
-
 file.remove(c(list.files(pattern = "^636.+csv$")))
-capeml::eml_to_amz(list.files(pattern = "knb.+xml"))
-file.copy(list.files(pattern = "knb.+xml"), "/home/srearl/localRepos/cap-metadata/cap-data-eml/")
 
 ```
