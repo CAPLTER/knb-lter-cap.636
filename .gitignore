@@ -34,5 +34,5 @@ vignettes/*.pdf
 .Rproj.user
 
 # project specific
-knb-lter-cap\.636\.\d+\.xml
-636_.*
+knb-lter-cap.636*.xml
+636_*

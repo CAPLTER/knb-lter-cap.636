@@ -238,6 +238,6 @@ eml     <- capeml::create_eml()
 EML::eml_validate(eml)
 capeml::write_cap_eml()
 
-file.remove(c(list.files(pattern = "^636.+csv$")))
+# file.remove(c(list.files(pattern = "^636.+csv$")))
 
 ```

@@ -1,0 +1,126 @@
+- name: M-PER-SEC
+  valueLabel: Meter per Second
+  valueURI: http://qudt.org/vocab/unit/M-PER-SEC
+  references: 0503f7bf88ed4a8560dd5ca99b0f26be_10
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: NUM
+  valueLabel: Number
+  valueURI: http://qudt.org/vocab/unit/NUM
+  references: 0503f7bf88ed4a8560dd5ca99b0f26be_3
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: DEG_C
+  valueLabel: degree Celsius
+  valueURI: http://qudt.org/vocab/unit/DEG_C
+  references: 0503f7bf88ed4a8560dd5ca99b0f26be_4
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: MilliM
+  valueLabel: Millimeter
+  valueURI: http://qudt.org/vocab/unit/MilliM
+  references: 0503f7bf88ed4a8560dd5ca99b0f26be_5
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: PERCENT
+  valueLabel: Percent
+  valueURI: http://qudt.org/vocab/unit/PERCENT
+  references: 0503f7bf88ed4a8560dd5ca99b0f26be_6
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: MegaJ-PER-M2
+  valueLabel: Megajoule Per Square Meter
+  valueURI: http://qudt.org/vocab/unit/MegaJ-PER-M2
+  references: 0503f7bf88ed4a8560dd5ca99b0f26be_8
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: DEG
+  valueLabel: Degree
+  valueURI: http://qudt.org/vocab/unit/DEG
+  references: 0503f7bf88ed4a8560dd5ca99b0f26be_9
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: MilliM
+  valueLabel: Millimeter
+  valueURI: http://qudt.org/vocab/unit/MilliM
+  references: 141943b6a9cf5ee0e910e81769d4c64b_10
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: NUM
+  valueLabel: Number
+  valueURI: http://qudt.org/vocab/unit/NUM
+  references: 141943b6a9cf5ee0e910e81769d4c64b_3
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: DEG_C
+  valueLabel: degree Celsius
+  valueURI: http://qudt.org/vocab/unit/DEG_C
+  references: 141943b6a9cf5ee0e910e81769d4c64b_4
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: PERCENT
+  valueLabel: Percent
+  valueURI: http://qudt.org/vocab/unit/PERCENT
+  references: 141943b6a9cf5ee0e910e81769d4c64b_5
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: MegaJ-PER-M2
+  valueLabel: Megajoule Per Square Meter
+  valueURI: http://qudt.org/vocab/unit/MegaJ-PER-M2
+  references: 141943b6a9cf5ee0e910e81769d4c64b_7
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: M-PER-SEC
+  valueLabel: Meter per Second
+  valueURI: http://qudt.org/vocab/unit/M-PER-SEC
+  references: 141943b6a9cf5ee0e910e81769d4c64b_8
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: DEG
+  valueLabel: Degree
+  valueURI: http://qudt.org/vocab/unit/DEG
+  references: 141943b6a9cf5ee0e910e81769d4c64b_9
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: MilliM
+  valueLabel: Millimeter
+  valueURI: http://qudt.org/vocab/unit/MilliM
+  references: c81b1eafdd2292583d485cc150d96aba_10
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: NUM
+  valueLabel: Number
+  valueURI: http://qudt.org/vocab/unit/NUM
+  references: c81b1eafdd2292583d485cc150d96aba_3
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: DEG_C
+  valueLabel: degree Celsius
+  valueURI: http://qudt.org/vocab/unit/DEG_C
+  references: c81b1eafdd2292583d485cc150d96aba_4
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: PERCENT
+  valueLabel: Percent
+  valueURI: http://qudt.org/vocab/unit/PERCENT
+  references: c81b1eafdd2292583d485cc150d96aba_5
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: MegaJ-PER-M2
+  valueLabel: Megajoule Per Square Meter
+  valueURI: http://qudt.org/vocab/unit/MegaJ-PER-M2
+  references: c81b1eafdd2292583d485cc150d96aba_7
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: M-PER-SEC
+  valueLabel: Meter per Second
+  valueURI: http://qudt.org/vocab/unit/M-PER-SEC
+  references: c81b1eafdd2292583d485cc150d96aba_8
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
+- name: DEG
+  valueLabel: Degree
+  valueURI: http://qudt.org/vocab/unit/DEG
+  references: c81b1eafdd2292583d485cc150d96aba_9
+  propertyLabel: has unit
+  propertyURI: http://qudt.org/schema/qudt/hasUnit
